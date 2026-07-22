@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string" },
+    "summary": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["library", "tool", "service", "resource", "snippet", "pattern"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["watching", "tried", "recommended", "archived"]
+    },
+    "topics": { "type": "array", "items": { "type": "string" } },
+    "languages": { "type": "array", "items": { "type": "string" } },
+    "license": { "type": ["string", "null"] },
+    "added": { "type": "string" },
+    "source_issue": { "type": "integer" },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "submitted": { "type": "string" },
+        "homepage": { "type": ["string", "null"] },
+        "documentation": { "type": ["string", "null"] },
+        "repository": { "type": ["string", "null"] },
+        "package": { "type": ["string", "null"] }
+      },
+      "required": ["submitted", "homepage", "documentation", "repository", "package"]
+    }
+  },
+  "required": [
+    "name",
+    "summary",
+    "type",
+    "status",
+    "topics",
+    "languages",
+    "license",
+    "added",
+    "source_issue",
+    "links"
+  ]
+}

@@ -1,0 +1,83 @@
+name: Add toolbox entry
+
+on:
+  issues:
+    types: [opened]
+
+concurrency:
+  group: toolbox-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    if: >-
+      github.event.issue.user.login == github.repository_owner &&
+      github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Research entry with Parallel
+        env:
+          PARALLEL_API_KEY: ${{ secrets.PARALLEL_API_KEY }}
+          PARALLEL_PROCESSOR: base
+        run: node scripts/enrich-issue.mjs "$GITHUB_EVENT_PATH" candidate.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: toolbox-candidate
+          path: candidate.json
+          retention-days: 3
+
+  publish:
+    needs: enrich
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v8
+        with:
+          name: toolbox-candidate
+      - name: Validate and materialize entry
+        run: |
+          node scripts/materialize-entry.mjs candidate.json review.md
+          npm run generate
+          npm run check
+          npm test
+      - name: Commit candidate and open review PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          BRANCH="toolbox/issue-${ISSUE_NUMBER}-${RUN_ID}"
+          git switch -c "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add entries README.md
+          git commit -m "Add toolbox entry from issue #${ISSUE_NUMBER}"
+          git push --set-upstream origin "$BRANCH"
+          PR_URL=$(gh pr create \
+            --base "$DEFAULT_BRANCH" \
+            --head "$BRANCH" \
+            --title "Add toolbox entry from #${ISSUE_NUMBER}" \
+            --body-file review.md)
+          gh issue comment "$ISSUE_NUMBER" --body "Enrichment is ready for review: ${PR_URL}"

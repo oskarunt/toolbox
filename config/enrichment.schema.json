@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The official product or project name. Return the submitted name if it is already correct."
+    },
+    "summary": {
+      "type": "string",
+      "description": "A neutral one-sentence description of what it is and does. Do not include hype or personal judgment."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["library", "tool", "service", "resource", "snippet", "pattern"],
+      "description": "The single closest toolbox type. A hosted commercial product is a service; runnable developer software is a tool; reusable code consumed by other code is a library."
+    },
+    "topics": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Two to six concise lowercase technical topics."
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Primary programming languages, or an empty array when not applicable or unknown."
+    },
+    "license": {
+      "type": ["string", "null"],
+      "description": "The SPDX license identifier when confirmed from an authoritative source; otherwise null."
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "homepage": {
+          "type": ["string", "null"],
+          "description": "Canonical official homepage URL, or null."
+        },
+        "documentation": {
+          "type": ["string", "null"],
+          "description": "Canonical official documentation URL, or null."
+        },
+        "repository": {
+          "type": ["string", "null"],
+          "description": "Canonical source repository URL, normally GitHub or GitLab, or null."
+        },
+        "package": {
+          "type": ["string", "null"],
+          "description": "Canonical package registry URL, or null."
+        }
+      },
+      "required": ["homepage", "documentation", "repository", "package"]
+    }
+  },
+  "required": ["name", "summary", "type", "topics", "languages", "license", "links"]
+}

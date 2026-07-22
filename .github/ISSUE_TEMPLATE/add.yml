@@ -1,0 +1,54 @@
+name: Add to toolbox
+description: Save something useful and let the enrichment workflow prepare an entry.
+title: "[Add]: "
+labels: ["inbox"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Only the link is essential. The workflow will research factual metadata and open a pull request for review.
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: A public homepage, documentation page, repository, package, article, or snippet.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name (optional)
+      description: Leave blank to use the official name found during enrichment.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Let the agent decide
+        - Library
+        - Tool
+        - Service / SaaS
+        - Resource
+        - Snippet
+        - Pattern
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Watching
+        - Tried
+        - Recommended
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: Why I saved it (optional)
+      description: A personal note only—Parallel will never invent or rewrite this judgment.
+      placeholder: Looks useful for...
