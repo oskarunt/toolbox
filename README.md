@@ -15,7 +15,7 @@ A personal library of technology, tools, and ideas worth remembering.
 
 ## Services
 
-- [Stainless](https://www.stainless.com/) — Stainless is a platform that generates idiomatic SDKs, documentation, and MCP servers from OpenAPI specifications. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
+- [Stainless](https://www.stainless.com/) — An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
 
 ## Repository setup
 

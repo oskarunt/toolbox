@@ -1,6 +1,6 @@
 ---
 name: Stainless
-summary: Stainless is a platform that generates idiomatic SDKs, documentation, and MCP servers from OpenAPI specifications.
+summary: An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down.
 type: service
 status: watching
 topics:
