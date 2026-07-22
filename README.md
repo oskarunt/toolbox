@@ -13,13 +13,11 @@ A personal library of technology, tools, and ideas worth remembering.
 
 - [estonian-mcp](https://github.com/silly-geese/estonian-mcp) — An offline Model Context Protocol (MCP) server that provides AI agents with tools for Estonian language processing, including spelling, morphology, and legal terminology, by wrapping EstNLTK, EKI Reeglid, and Riigi Teataja. _watching_ · [package](https://smithery.ai/servers/silly-geese/estonian-mcp)
 - [Hey API](https://heyapi.dev/) — An ecosystem for turning OpenAPI specifications into production-ready code, including SDKs, validators, and query hooks. _watching_ · [docs](https://heyapi.dev/docs) · [source](https://github.com/hey-api/hey-api) · [package](https://npmjs.com/package/@hey-api/openapi-ts)
+- [Lightpanda](https://lightpanda.io/) — A fast, lightweight headless browser engine built from scratch in Zig for automation, crawling, and AI agents. _watching_ · [docs](https://lightpanda.io/docs) · [source](https://github.com/lightpanda-io/browser) · [package](https://hub.docker.com/r/lightpanda/browser)
 
 ## Services
 
 - [Confident AI](https://www.confident-ai.com/) — An AI quality platform for enterprise teams to standardize AI evaluations and observability. _watching_ · [docs](https://docs.confident-ai.com/) · [source](https://github.com/confident-ai/deepeval) · [package](https://pypi.org/project/deepeval/)
-
-## Services
-
 - [Stainless](https://www.stainless.com/) — An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
 
 ## Repository setup
