@@ -89,6 +89,10 @@ export function normalizeEnrichment(candidate) {
       candidate.languages.map((language) => boundedText(language, "language", 40))
     ).slice(0, 8),
     license: candidate.license === null ? null : boundedText(candidate.license, "license", 50),
+    license_note:
+      candidate.license_note === null
+        ? null
+        : boundedText(candidate.license_note, "license note", 240),
     links: {
       homepage: nullableUrl(candidate.links.homepage, "homepage"),
       documentation: nullableUrl(candidate.links.documentation, "documentation"),

@@ -16,6 +16,7 @@
     "topics": { "type": "array", "items": { "type": "string" } },
     "languages": { "type": "array", "items": { "type": "string" } },
     "license": { "type": ["string", "null"] },
+    "license_note": { "type": "string" },
     "added": { "type": "string" },
     "source_issue": { "type": "integer" },
     "links": {

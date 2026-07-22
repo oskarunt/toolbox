@@ -1,5 +1,6 @@
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import YAML from "yaml";
 import { assertValid, validatorFor } from "./validation.mjs";
 
 export function slugify(value) {
@@ -15,9 +16,7 @@ export function slugify(value) {
 }
 
 export function serializeEntry(entry, note = "") {
-  // JSON is a strict subset of YAML, giving us safe, deterministic frontmatter
-  // without requiring a parser dependency in this small repository.
-  const frontmatter = JSON.stringify(sortRecursively(entry), null, 2);
+  const frontmatter = YAML.stringify(canonicalEntry(entry), { lineWidth: 0 }).trimEnd();
   const body = note.trim();
   return `---\n${frontmatter}\n---\n${body ? `\n${body}\n` : ""}`;
 }
@@ -25,23 +24,33 @@ export function serializeEntry(entry, note = "") {
 export function parseEntry(contents, filename = "entry") {
   const match = contents.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)([\s\S]*)$/);
   if (!match) throw new Error(`${filename} does not contain valid YAML frontmatter.`);
-  try {
-    return { data: JSON.parse(match[1]), note: match[2].trim() };
-  } catch (error) {
-    throw new Error(`${filename} has invalid JSON-compatible YAML frontmatter: ${error.message}`);
+  const document = YAML.parseDocument(match[1], { schema: "core", uniqueKeys: true });
+  if (document.errors.length) {
+    throw new Error(`${filename} has invalid YAML frontmatter: ${document.errors[0].message}`);
   }
+  return { data: document.toJS({ maxAliasCount: 0 }), note: match[2].trim() };
 }
 
-function sortRecursively(value) {
-  if (Array.isArray(value)) return value.map(sortRecursively);
-  if (value !== null && typeof value === "object") {
-    return Object.fromEntries(
-      Object.keys(value)
-        .sort()
-        .map((key) => [key, sortRecursively(value[key])])
-    );
-  }
-  return value;
+function canonicalEntry(entry) {
+  return {
+    name: entry.name,
+    summary: entry.summary,
+    type: entry.type,
+    status: entry.status,
+    topics: entry.topics,
+    languages: entry.languages,
+    license: entry.license,
+    ...(entry.license_note ? { license_note: entry.license_note } : {}),
+    added: entry.added,
+    source_issue: entry.source_issue,
+    links: {
+      homepage: entry.links.homepage,
+      documentation: entry.links.documentation,
+      repository: entry.links.repository,
+      package: entry.links.package,
+      submitted: entry.links.submitted
+    }
+  };
 }
 
 export async function loadEntries(directory = "entries") {
@@ -55,9 +64,10 @@ export async function loadEntries(directory = "entries") {
   const { validate } = await validatorFor("config/entry.schema.json");
   return Promise.all(
     filenames.map(async (filename) => {
-      const parsed = parseEntry(await readFile(path.join(directory, filename), "utf8"), filename);
+      const contents = await readFile(path.join(directory, filename), "utf8");
+      const parsed = parseEntry(contents, filename);
       assertValid(validate, parsed.data, filename);
-      return { ...parsed, filename };
+      return { ...parsed, filename, contents };
     })
   );
 }

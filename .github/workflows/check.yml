@@ -1,6 +1,7 @@
 name: Check toolbox
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
@@ -16,5 +17,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+      - run: npm ci
       - run: npm run check
       - run: npm test

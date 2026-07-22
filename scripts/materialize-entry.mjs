@@ -24,6 +24,7 @@ const entry = {
   topics: enrichment.topics,
   languages: enrichment.languages,
   license: enrichment.license,
+  ...(enrichment.license_note ? { license_note: enrichment.license_note } : {}),
   added: new Date(artifact.issue.created_at).toISOString().slice(0, 10),
   source_issue: artifact.issue.number,
   links: {
@@ -35,14 +36,19 @@ const entry = {
 const { validate: validateEntry } = await validatorFor("config/entry.schema.json");
 assertValid(validateEntry, entry, "materialized entry");
 const filename = await writeEntry(entry, input.note);
-const sourceUrls = stableUnique(collectUrls(artifact.research_basis)).slice(0, 20);
+const sourceUrls = stableUnique(
+  [input.submittedUrl, ...Object.values(enrichment.links)].filter(Boolean).map((url) =>
+    assertPublicUrl(url, "official source")
+  )
+);
 const review = [
   `Prepared from #${artifact.issue.number} using bounded Parallel research.`,
   "",
   "Review the factual metadata and personal classification before merging.",
   "",
-  sourceUrls.length ? "## Research sources" : "## Research sources\n\n_No valid source URLs were returned._",
-  ...(sourceUrls.length ? ["", ...sourceUrls.map((url) => `- <${url}>`)] : []),
+  "## Official links to review",
+  "",
+  ...sourceUrls.map((url) => `- <${url}>`),
   "",
   `Parallel run: \`${artifact.parallel_run_id}\``,
   "",
@@ -51,22 +57,3 @@ const review = [
 ].join("\n");
 await writeFile(reviewPath, review, "utf8");
 console.log(`Wrote entries/${filename}`);
-
-function collectUrls(value, found = []) {
-  if (typeof value === "string") {
-    if (/^https?:\/\//i.test(value)) {
-      try {
-        found.push(assertPublicUrl(value, "research source"));
-      } catch {
-        // Ignore malformed or non-public URLs from the untrusted research artifact.
-      }
-    }
-    return found;
-  }
-  if (Array.isArray(value)) {
-    for (const child of value) collectUrls(child, found);
-  } else if (value !== null && typeof value === "object") {
-    for (const child of Object.values(value)) collectUrls(child, found);
-  }
-  return found;
-}

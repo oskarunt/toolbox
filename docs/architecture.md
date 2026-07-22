@@ -17,4 +17,4 @@ The owner controls personal fields such as `status`, the optional name override,
 
 ## Deterministic publishing
 
-Every accepted item is a Markdown file with YAML frontmatter under `entries/`. `scripts/generate-readme.mjs` reads those files, validates them against `config/entry.schema.json`, sorts them, and renders `README.md` without AI involvement.
+Every accepted item is a Markdown file with conventional YAML frontmatter under `entries/`. `scripts/generate-readme.mjs` reads those files, validates them against `config/entry.schema.json`, sorts them, and renders `README.md` without AI involvement.
