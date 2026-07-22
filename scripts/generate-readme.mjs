@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { loadEntries } from "./lib/entries.mjs";
 import { renderReadme } from "./lib/readme.mjs";
 
-await writeFile("README.md", renderReadme(await loadEntries()), "utf8");
+const template = await readFile("README.template.md", "utf8");
+await writeFile("README.md", renderReadme(await loadEntries(), template), "utf8");
 console.log("Generated README.md");

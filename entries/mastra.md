@@ -1,10 +1,12 @@
 ---
+schema_version: 1
+id: mastra
 name: Mastra
-summary: Mastra is a TypeScript framework for building, testing, and deploying AI agents and workflows.
+summary: A TypeScript framework for building, testing, and deploying AI agents and workflows.
 type: library
 status: tried
 topics:
-  - ai agents
+  - ai-agents
   - llm
   - observability
   - typescript

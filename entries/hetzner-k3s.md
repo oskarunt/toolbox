@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: hetzner-k3s
 name: hetzner-k3s
 summary: A CLI tool that creates production-ready Kubernetes clusters on Hetzner Cloud.
 type: tool

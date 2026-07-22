@@ -1,12 +1,14 @@
 ---
+schema_version: 1
+id: pulumi
 name: Pulumi
 summary: An open-source infrastructure as code platform that enables users to define, deploy, and manage cloud infrastructure using general-purpose programming languages.
 type: tool
 status: tried
 topics:
-  - cloud computing
+  - cloud-computing
   - devops
-  - infrastructure as code
+  - infrastructure-as-code
   - multi-cloud
 languages:
   - C#

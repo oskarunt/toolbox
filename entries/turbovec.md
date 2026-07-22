@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: turbovec
 name: turbovec
 summary: A Rust-based vector index with Python bindings that implements the TurboQuant algorithm for quantized vector search.
 type: library

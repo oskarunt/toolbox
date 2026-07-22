@@ -1,12 +1,14 @@
 ---
+schema_version: 1
+id: blocknote
 name: BlockNote
 summary: An open-source, block-based rich text editor library for React applications.
 type: library
 status: watching
 topics:
-  - block-based editor
+  - block-based-editor
   - react
-  - rich text editor
+  - rich-text-editor
   - typescript
 languages:
   - TypeScript

@@ -15,4 +15,4 @@ npm run check
 npm test
 ```
 
-Entry files in `entries/` are canonical. `README.md` is generated and must not be edited independently.
+Entry files in `entries/` are canonical. Edit `README.template.md` for human-authored README prose; `README.md` is generated and must not be edited independently. See `docs/entries.md` for the schema and classification semantics.

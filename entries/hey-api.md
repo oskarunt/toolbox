@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: hey-api
 name: Hey API
 summary: An ecosystem for turning OpenAPI specifications into production-ready code, including SDKs, validators, and query hooks.
 type: tool

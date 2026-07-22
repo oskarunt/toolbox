@@ -1,13 +1,15 @@
 ---
+schema_version: 1
+id: openpanel
 name: OpenPanel
 summary: An open-source web and product analytics platform that serves as an alternative to Mixpanel.
 type: tool
 status: watching
 topics:
-  - open source
+  - open-source
   - privacy
-  - product analytics
-  - web analytics
+  - product-analytics
+  - web-analytics
 languages:
   - JavaScript
   - TypeScript

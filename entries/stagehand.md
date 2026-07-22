@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: stagehand
 name: Stagehand
 summary: An open source AI browser automation framework used to control web browsers with natural language and code.
 type: library

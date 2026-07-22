@@ -1,10 +1,12 @@
 ---
+schema_version: 1
+id: voyageai
 name: VoyageAI
-summary: Voyage AI provides embedding models and rerankers for search and retrieval.
+summary: An AI platform providing embedding models and rerankers for search and retrieval.
 type: service
 status: watching
 topics:
-  - embedding models
+  - embedding-models
   - rag
   - rerankers
   - retrieval

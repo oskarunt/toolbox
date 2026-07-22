@@ -1,13 +1,15 @@
 ---
+schema_version: 1
+id: windmill
 name: Windmill
 summary: An open-source developer platform and workflow engine for building internal apps, APIs, and background jobs.
 type: tool
 status: watching
 topics:
-  - developer platform
-  - internal tools
+  - developer-platform
+  - internal-tools
   - orchestration
-  - workflow engine
+  - workflow-engine
 languages:
   - Rust
   - TypeScript

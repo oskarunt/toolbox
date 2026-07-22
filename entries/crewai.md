@@ -1,11 +1,13 @@
 ---
+schema_version: 1
+id: crewai
 name: CrewAI
 summary: An open-source multi-agent orchestration framework and cloud platform for building and managing AI agents.
 type: library
 status: watching
 topics:
-  - ai agents
-  - multi-agent systems
+  - ai-agents
+  - multi-agent-systems
   - orchestration
   - python
 languages:

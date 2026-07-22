@@ -7,49 +7,79 @@ const TYPE_LABELS = {
   pattern: "Patterns"
 };
 
+const GENERATED_REGIONS = {
+  highlights: ["<!-- toolbox:highlights:start -->", "<!-- toolbox:highlights:end -->"],
+  catalog: ["<!-- toolbox:catalog:start -->", "<!-- toolbox:catalog:end -->"]
+};
+
 function escapeMarkdown(value) {
   return value.replace(/([\\[\]_*`<>])/g, "\\$1");
 }
 
-function primaryUrl(entry) {
-  return entry.links.homepage || entry.links.repository || entry.links.documentation || entry.links.submitted;
-}
-
-function secondaryLinks(entry, primary) {
+function externalLinks(entry) {
   const labels = {
+    homepage: "homepage",
     documentation: "docs",
     repository: "source",
     package: "package"
   };
-  return Object.entries(labels)
-    .filter(([key]) => entry.links[key] && entry.links[key] !== primary)
+  const links = Object.entries(labels)
+    .filter(([key]) => {
+      const url = entry.links[key];
+      if (!url) return false;
+      if (key === "homepage" && url === entry.links.repository) return false;
+      if (
+        key === "documentation" &&
+        (url === entry.links.homepage || url === entry.links.repository)
+      ) {
+        return false;
+      }
+      return true;
+    })
     .map(([key, label]) => `[${label}](${entry.links[key]})`);
+  if (links.length === 0) links.push(`[submitted link](${entry.links.submitted})`);
+  return links;
 }
 
-export function renderReadme(entries) {
-  const lines = [
-    "# Toolbox",
-    "",
-    "A personal library of technology, tools, and ideas worth remembering.",
-    "",
-    "> This catalog is generated deterministically from the Markdown files in `entries/`. Submit new finds through the **Add to toolbox** issue form.",
-    ""
-  ];
+function entryLine({ data, filename }, includeStatus = true) {
+  const metadata = [includeStatus ? `_${data.status}_` : null, ...externalLinks(data)]
+    .filter(Boolean)
+    .join(" · ");
+  return `- [${escapeMarkdown(data.name)}](entries/${filename}) — ${escapeMarkdown(data.summary)} ${metadata}`;
+}
+
+function renderHighlights(entries) {
+  const lines = [];
+  for (const [status, heading] of [
+    ["recommended", "Recommended"],
+    ["tried", "Tried"]
+  ]) {
+    const matches = entries
+      .filter(({ data }) => data.status === status)
+      .sort((a, b) => a.data.name.localeCompare(b.data.name));
+    if (matches.length === 0) continue;
+    lines.push(`### ${heading}`, "");
+    for (const entry of matches) {
+      lines.push(entryLine(entry, false));
+      if (entry.note) {
+        lines.push(`  - **Why I saved it:** ${entry.note.replace(/\s+/g, " ")}`);
+      }
+    }
+    lines.push("");
+  }
+  return lines.length ? lines.join("\n").trimEnd() : "_No tried or recommended entries yet._";
+}
+
+function renderCatalog(entries) {
+  const lines = [];
 
   for (const type of Object.keys(TYPE_LABELS)) {
     const matches = entries
       .filter(({ data }) => data.type === type && data.status !== "archived")
       .sort((a, b) => a.data.name.localeCompare(b.data.name));
     if (matches.length === 0) continue;
-    lines.push(`## ${TYPE_LABELS[type]}`, "");
-    for (const { data } of matches) {
-      const primary = primaryUrl(data);
-      const extras = secondaryLinks(data, primary);
-      const metadata = [`_${data.status}_`, ...extras].join(" · ");
-      lines.push(
-        `- [${escapeMarkdown(data.name)}](${primary}) — ${escapeMarkdown(data.summary)} ${metadata}`
-      );
-    }
+    lines.push(`### ${TYPE_LABELS[type]}`, "");
+    for (const entry of matches) lines.push(entryLine(entry));
     lines.push("");
   }
 
@@ -57,19 +87,23 @@ export function renderReadme(entries) {
     .filter(({ data }) => data.status === "archived")
     .sort((a, b) => a.data.name.localeCompare(b.data.name));
   if (archived.length) {
-    lines.push("## Archived", "");
-    for (const { data } of archived) {
-      lines.push(`- [${escapeMarkdown(data.name)}](${primaryUrl(data)}) — ${escapeMarkdown(data.summary)}`);
-    }
+    lines.push("### Archived", "");
+    for (const entry of archived) lines.push(entryLine(entry));
     lines.push("");
   }
 
-  if (entries.length === 0) lines.push("_Nothing here yet._", "");
-  lines.push(
-    "## Repository setup",
-    "",
-    "See [`docs/setup.md`](docs/setup.md) for the one-time Parallel secret and GitHub Actions configuration.",
-    ""
-  );
-  return `${lines.join("\n").trimEnd()}\n`;
+  return lines.length ? lines.join("\n").trimEnd() : "_Nothing here yet._";
+}
+
+function replaceRegion(template, name, contents) {
+  const [start, end] = GENERATED_REGIONS[name];
+  const pattern = new RegExp(`${start}[\\s\\S]*?${end}`);
+  if (!pattern.test(template)) throw new Error(`README template is missing the ${name} region.`);
+  return template.replace(pattern, `${start}\n${contents}\n${end}`);
+}
+
+export function renderReadme(entries, template) {
+  let output = replaceRegion(template, "highlights", renderHighlights(entries));
+  output = replaceRegion(output, "catalog", renderCatalog(entries));
+  return `${output.trimEnd()}\n`;
 }
