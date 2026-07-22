@@ -18,6 +18,7 @@ A personal library of technology, tools, and ideas worth remembering.
 - [hetzner-k3s](https://hetzner-k3s.com/) — A CLI tool that creates production-ready Kubernetes clusters on Hetzner Cloud. _tried_ · [docs](https://vitobotta.github.io/hetzner-k3s/) · [source](https://github.com/vitobotta/hetzner-k3s) · [package](https://github.com/vitobotta/hetzner-k3s/releases)
 - [Hey API](https://heyapi.dev/) — An ecosystem for turning OpenAPI specifications into production-ready code, including SDKs, validators, and query hooks. _watching_ · [docs](https://heyapi.dev/docs) · [source](https://github.com/hey-api/hey-api) · [package](https://npmjs.com/package/@hey-api/openapi-ts)
 - [Lightpanda](https://lightpanda.io/) — A fast, lightweight headless browser engine built from scratch in Zig for automation, crawling, and AI agents. _watching_ · [docs](https://lightpanda.io/docs) · [source](https://github.com/lightpanda-io/browser) · [package](https://hub.docker.com/r/lightpanda/browser)
+- [Medusa](https://medusajs.com/) — An open-source, headless commerce platform and framework for building customizable e-commerce solutions. _watching_ · [docs](https://docs.medusajs.com/) · [source](https://github.com/medusajs/medusa) · [package](https://www.npmjs.com/package/@medusajs/medusa)
 - [Meilisearch](https://www.meilisearch.com/) — An open-source, high-performance search engine that provides an API for indexing and searching content. _watching_ · [docs](https://www.meilisearch.com/docs) · [source](https://github.com/meilisearch/meilisearch)
 - [OpenPanel](https://openpanel.dev/) — An open-source web and product analytics platform that serves as an alternative to Mixpanel. _watching_ · [docs](https://openpanel.dev/docs) · [source](https://github.com/Openpanel-dev/openpanel) · [package](https://npmjs.com/package/@openpanel/sdk)
 - [Windmill](https://www.windmill.dev/) — An open-source developer platform and workflow engine for building internal apps, APIs, and background jobs. _watching_ · [docs](https://www.windmill.dev/docs) · [source](https://github.com/windmill-labs/windmill) · [package](https://pypi.org/project/wmill)
@@ -25,11 +26,8 @@ A personal library of technology, tools, and ideas worth remembering.
 ## Services
 
 - [Confident AI](https://www.confident-ai.com/) — An AI quality platform for enterprise teams to standardize AI evaluations and observability. _watching_ · [docs](https://docs.confident-ai.com/) · [source](https://github.com/confident-ai/deepeval) · [package](https://pypi.org/project/deepeval/)
-- [Stainless](https://www.stainless.com/) — An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
-
-## Services
-
 - [Polar](https://polar.sh/) — A billing platform and Merchant of Record for developers building AI-era software, providing payments, subscriptions, and usage-based billing with global tax handling. _watching_ · [docs](https://polar.sh/docs) · [source](https://github.com/polarsource/polar)
+- [Stainless](https://www.stainless.com/) — An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
 
 ## Repository setup
 
