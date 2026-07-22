@@ -7,7 +7,7 @@
 3. A read-only job sends the submitted URL and the factual enrichment schema to Parallel's Task API.
 4. Parallel returns structured metadata plus a research basis containing its evidence.
 5. A separate write-enabled job treats that response as untrusted input, validates and normalizes it, creates a Markdown entry, and regenerates the catalog.
-6. The workflow opens a pull request. Merging it admits the entry and closes the inbox issue.
+6. After validation and tests pass, the workflow opens a pull request and records a successful commit status without launching a second workflow. Merging it admits the entry and closes the inbox issue.
 
 The enrichment job has no repository write permission. The publishing job has no Parallel API key. This separation prevents researched page content from directly modifying the repository.
 
