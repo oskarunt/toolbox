@@ -18,6 +18,10 @@ A personal library of technology, tools, and ideas worth remembering.
 
 - [Confident AI](https://www.confident-ai.com/) — An AI quality platform for enterprise teams to standardize AI evaluations and observability. _watching_ · [docs](https://docs.confident-ai.com/) · [source](https://github.com/confident-ai/deepeval) · [package](https://pypi.org/project/deepeval/)
 
+## Services
+
+- [Stainless](https://www.stainless.com/) — An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
+
 ## Repository setup
 
 See [`docs/setup.md`](docs/setup.md) for the one-time Parallel secret and GitHub Actions configuration.
