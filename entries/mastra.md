@@ -12,7 +12,7 @@ topics:
 languages:
   - TypeScript
 license: Apache-2.0
-license_note: The core framework is open source under the Apache 2.0 license, while enterprise features are source-available under the la Mastra Enterprise License.
+license_note: The core framework is open source under the Apache 2.0 license, while enterprise features are source-available under the Mastra Enterprise License.
 added: 2026-07-22
 source_issue: 44
 links:
