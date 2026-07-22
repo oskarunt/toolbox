@@ -7,6 +7,7 @@ A personal library of technology, tools, and ideas worth remembering.
 ## Libraries
 
 - [BlockNote](https://www.blocknotejs.org/) — An open-source, block-based rich text editor library for React applications. _watching_ · [docs](https://www.blocknotejs.org/docs) · [source](https://github.com/TypeCellOS/BlockNote) · [package](https://www.npmjs.com/package/@blocknote/core)
+- [Stagehand](https://www.stagehand.dev/) — An open source AI browser automation framework used to control web browsers with natural language and code. _tried_ · [docs](https://docs.stagehand.dev/) · [source](https://github.com/browserbase/stagehand) · [package](https://www.npmjs.com/package/@browserbasehq/stagehand)
 - [TipTap](https://tiptap.dev/) — A headless, open-source rich text editor framework for the web. _watching_ · [docs](https://tiptap.dev/docs) · [source](https://github.com/ueberdosis/tiptap) · [package](https://www.npmjs.com/package/@tiptap/react)
 
 ## Tools
