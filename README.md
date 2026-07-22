@@ -14,6 +14,7 @@ A personal library of technology, tools, and ideas worth remembering.
 ## Tools
 
 - [estonian-mcp](https://github.com/silly-geese/estonian-mcp) — An offline Model Context Protocol (MCP) server that provides AI agents with tools for Estonian language processing, including spelling, morphology, and legal terminology, by wrapping EstNLTK, EKI Reeglid, and Riigi Teataja. _watching_ · [package](https://smithery.ai/servers/silly-geese/estonian-mcp)
+- [hetzner-k3s](https://hetzner-k3s.com/) — A CLI tool that creates production-ready Kubernetes clusters on Hetzner Cloud. _tried_ · [docs](https://vitobotta.github.io/hetzner-k3s/) · [source](https://github.com/vitobotta/hetzner-k3s) · [package](https://github.com/vitobotta/hetzner-k3s/releases)
 - [Hey API](https://heyapi.dev/) — An ecosystem for turning OpenAPI specifications into production-ready code, including SDKs, validators, and query hooks. _watching_ · [docs](https://heyapi.dev/docs) · [source](https://github.com/hey-api/hey-api) · [package](https://npmjs.com/package/@hey-api/openapi-ts)
 - [Lightpanda](https://lightpanda.io/) — A fast, lightweight headless browser engine built from scratch in Zig for automation, crawling, and AI agents. _watching_ · [docs](https://lightpanda.io/docs) · [source](https://github.com/lightpanda-io/browser) · [package](https://hub.docker.com/r/lightpanda/browser)
 
