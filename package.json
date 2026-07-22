@@ -9,5 +9,8 @@
     "generate": "node scripts/generate-readme.mjs",
     "check": "node scripts/check.mjs",
     "test": "node --test"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
   }
 }

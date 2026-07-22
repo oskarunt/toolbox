@@ -9,6 +9,7 @@ The issue is the inbox. Opening one starts a read-only Parallel research job. A 
 Requires Node.js 22 or newer.
 
 ```sh
+npm ci
 npm run generate
 npm run check
 npm test

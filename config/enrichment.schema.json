@@ -30,6 +30,10 @@
       "type": ["string", "null"],
       "description": "The SPDX license identifier when confirmed from an authoritative source; otherwise null."
     },
+    "license_note": {
+      "type": ["string", "null"],
+      "description": "A concise factual licensing caveat when different packages, editions, or features use different licenses or require a commercial license; otherwise null."
+    },
     "links": {
       "type": "object",
       "additionalProperties": false,
@@ -54,5 +58,5 @@
       "required": ["homepage", "documentation", "repository", "package"]
     }
   },
-  "required": ["name", "summary", "type", "topics", "languages", "license", "links"]
+  "required": ["name", "summary", "type", "topics", "languages", "license", "license_note", "links"]
 }

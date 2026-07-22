@@ -42,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
+      actions: write
       contents: write
       pull-requests: write
       issues: write
@@ -52,6 +53,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+      - run: npm ci
       - uses: actions/download-artifact@v8
         with:
           name: toolbox-candidate
@@ -81,3 +83,4 @@ jobs:
             --title "Add toolbox entry from #${ISSUE_NUMBER}" \
             --body-file review.md)
           gh issue comment "$ISSUE_NUMBER" --body "Enrichment is ready for review: ${PR_URL}"
+          gh workflow run check.yml --ref "$BRANCH"
