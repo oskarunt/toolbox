@@ -17,6 +17,7 @@ A personal library of technology, tools, and ideas worth remembering.
 - [hetzner-k3s](https://hetzner-k3s.com/) — A CLI tool that creates production-ready Kubernetes clusters on Hetzner Cloud. _tried_ · [docs](https://vitobotta.github.io/hetzner-k3s/) · [source](https://github.com/vitobotta/hetzner-k3s) · [package](https://github.com/vitobotta/hetzner-k3s/releases)
 - [Hey API](https://heyapi.dev/) — An ecosystem for turning OpenAPI specifications into production-ready code, including SDKs, validators, and query hooks. _watching_ · [docs](https://heyapi.dev/docs) · [source](https://github.com/hey-api/hey-api) · [package](https://npmjs.com/package/@hey-api/openapi-ts)
 - [Lightpanda](https://lightpanda.io/) — A fast, lightweight headless browser engine built from scratch in Zig for automation, crawling, and AI agents. _watching_ · [docs](https://lightpanda.io/docs) · [source](https://github.com/lightpanda-io/browser) · [package](https://hub.docker.com/r/lightpanda/browser)
+- [Windmill](https://www.windmill.dev/) — An open-source developer platform and workflow engine for building internal apps, APIs, and background jobs. _watching_ · [docs](https://www.windmill.dev/docs) · [source](https://github.com/windmill-labs/windmill) · [package](https://pypi.org/project/wmill)
 
 ## Services
 
