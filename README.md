@@ -30,6 +30,7 @@ A personal library of technology, tools, and ideas worth remembering.
 - [Confident AI](https://www.confident-ai.com/) — An AI quality platform for enterprise teams to standardize AI evaluations and observability. _watching_ · [docs](https://docs.confident-ai.com/) · [source](https://github.com/confident-ai/deepeval) · [package](https://pypi.org/project/deepeval/)
 - [Polar](https://polar.sh/) — A billing platform and Merchant of Record for developers building AI-era software, providing payments, subscriptions, and usage-based billing with global tax handling. _watching_ · [docs](https://polar.sh/docs) · [source](https://github.com/polarsource/polar)
 - [Stainless](https://www.stainless.com/) — An SDK, documentation, and MCP server generation platform acquired by Anthropic in May 2026 whose hosted products are winding down. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
+- [VoyageAI](https://www.voyageai.com/) — Voyage AI provides embedding models and rerankers for search and retrieval. _watching_ · [docs](https://docs.voyageai.com/) · [source](https://github.com/voyage-ai/voyageai-python) · [package](https://pypi.org/project/voyageai/)
 
 ## Repository setup
 
