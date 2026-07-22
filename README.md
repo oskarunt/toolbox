@@ -27,6 +27,7 @@ A personal library of technology, tools, and ideas worth remembering.
 - [Medusa](https://medusajs.com/) — An open-source, headless commerce platform and framework for building customizable e-commerce solutions. _watching_ · [docs](https://docs.medusajs.com/) · [source](https://github.com/medusajs/medusa) · [package](https://www.npmjs.com/package/@medusajs/medusa)
 - [Meilisearch](https://www.meilisearch.com/) — An open-source, high-performance search engine that provides an API for indexing and searching content. _watching_ · [docs](https://www.meilisearch.com/docs) · [source](https://github.com/meilisearch/meilisearch)
 - [OpenPanel](https://openpanel.dev/) — An open-source web and product analytics platform that serves as an alternative to Mixpanel. _watching_ · [docs](https://openpanel.dev/docs) · [source](https://github.com/Openpanel-dev/openpanel) · [package](https://npmjs.com/package/@openpanel/sdk)
+- [Pi](https://pi.dev/) — A minimal, extensible, terminal-based AI coding agent harness. _tried_ · [docs](https://pi.dev/docs/latest) · [source](https://github.com/earendil-works/pi) · [package](https://www.npmjs.com/package/@earendil-works/pi-coding-agent)
 - [Windmill](https://www.windmill.dev/) — An open-source developer platform and workflow engine for building internal apps, APIs, and background jobs. _watching_ · [docs](https://www.windmill.dev/docs) · [source](https://github.com/windmill-labs/windmill) · [package](https://pypi.org/project/wmill)
 
 ## Services
