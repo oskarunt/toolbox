@@ -11,8 +11,8 @@ topics:
 languages:
   - Rust
   - TypeScript
-license: AGPL-3.0-only
-license_note: The Community Edition is free to use internally; however, commercial redistribution or managed services require a commercial license. The open-source version is available under AGPLv3.
+license: AGPL-3.0-only AND Apache-2.0
+license_note: The repository combines AGPLv3 backend and frontend code, Apache-2.0 clients and specifications, and proprietary enterprise features; distributed Community Edition binaries also carry restrictions.
 added: 2026-07-22
 source_issue: 23
 links:
