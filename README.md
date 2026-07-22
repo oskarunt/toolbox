@@ -13,6 +13,7 @@ A personal library of technology, tools, and ideas worth remembering.
 - [Mastra](https://mastra.ai/) — Mastra is a TypeScript framework for building, testing, and deploying AI agents and workflows. _tried_ · [docs](https://mastra.ai/docs) · [source](https://github.com/mastra-ai/mastra) · [package](https://www.npmjs.com/package/@mastra/core)
 - [Stagehand](https://www.stagehand.dev/) — An open source AI browser automation framework used to control web browsers with natural language and code. _tried_ · [docs](https://docs.stagehand.dev/) · [source](https://github.com/browserbase/stagehand) · [package](https://www.npmjs.com/package/@browserbasehq/stagehand)
 - [TipTap](https://tiptap.dev/) — A headless, open-source rich text editor framework for the web. _watching_ · [docs](https://tiptap.dev/docs) · [source](https://github.com/ueberdosis/tiptap) · [package](https://www.npmjs.com/package/@tiptap/react)
+- [Vercel AI SDK](https://ai-sdk.dev/) — A unified TypeScript SDK for building AI applications with a consistent API for interacting with various model providers. _recommended_ · [docs](https://ai-sdk.dev/docs) · [source](https://github.com/vercel/ai) · [package](https://www.npmjs.com/package/ai)
 - [Xberg (formerly Kreuzberg)](https://xberg.dev/) — A polyglot document intelligence framework with a Rust core that extracts text, metadata, images, and structured information from over 97 document formats. _watching_ · [docs](https://docs.xberg.io/) · [source](https://github.com/xberg-io/xberg) · [package](https://crates.io/crates/xberg)
 
 ## Tools
