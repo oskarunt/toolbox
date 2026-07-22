@@ -13,6 +13,10 @@ A personal library of technology, tools, and ideas worth remembering.
 
 - [estonian-mcp](https://github.com/silly-geese/estonian-mcp) — An offline Model Context Protocol (MCP) server that provides AI agents with tools for Estonian language processing, including spelling, morphology, and legal terminology, by wrapping EstNLTK, EKI Reeglid, and Riigi Teataja. _watching_ · [package](https://smithery.ai/servers/silly-geese/estonian-mcp)
 
+## Services
+
+- [Stainless](https://www.stainless.com/) — Stainless is a platform that generates idiomatic SDKs, documentation, and MCP servers from OpenAPI specifications. _watching_ · [docs](https://www.stainless.com/docs/) · [source](https://github.com/stainless-api)
+
 ## Repository setup
 
 See [`docs/setup.md`](docs/setup.md) for the one-time Parallel secret and GitHub Actions configuration.
