@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: xberg-formerly-kreuzberg
 name: Xberg (formerly Kreuzberg)
 summary: A polyglot document intelligence framework with a Rust core that extracts text, metadata, images, and structured information from over 97 document formats.
 type: library

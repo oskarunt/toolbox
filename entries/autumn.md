@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: autumn
 name: Autumn
 summary: An open-source billing infrastructure that integrates with Stripe to provide a system of record for subscriptions, usage metering, credits, and feature entitlements.
 type: tool
@@ -6,9 +8,9 @@ status: watching
 topics:
   - billing
   - open-source
-  - saas monetization
+  - saas-monetization
   - stripe
-  - usage-based billing
+  - usage-based-billing
 languages:
   - JavaScript
   - TypeScript

@@ -1,13 +1,15 @@
 ---
+schema_version: 1
+id: lightpanda
 name: Lightpanda
 summary: A fast, lightweight headless browser engine built from scratch in Zig for automation, crawling, and AI agents.
 type: tool
 status: watching
 topics:
-  - ai agents
+  - ai-agents
   - automation
-  - browser engine
-  - headless browser
+  - browser-engine
+  - headless-browser
   - zig
 languages:
   - Zig

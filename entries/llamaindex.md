@@ -1,6 +1,8 @@
 ---
+schema_version: 1
+id: llamaindex
 name: LlamaIndex
-summary: LlamaIndex is an open-source data orchestration framework for building large language model (LLM) applications.
+summary: An open-source data orchestration framework for building large language model applications.
 type: library
 status: watching
 topics:

@@ -1,14 +1,16 @@
 ---
+schema_version: 1
+id: meilisearch
 name: Meilisearch
 summary: An open-source, high-performance search engine that provides an API for indexing and searching content.
 type: tool
 status: watching
 topics:
   - api
-  - full-text search
+  - full-text-search
   - indexing
   - rust
-  - search engine
+  - search-engine
 languages:
   - Rust
 license: MIT AND BUSL-1.1

@@ -1,12 +1,14 @@
 ---
+schema_version: 1
+id: pi
 name: Pi
 summary: A minimal, extensible, terminal-based AI coding agent harness.
 type: tool
 status: tried
 topics:
-  - ai agent
+  - ai-agent
   - cli
-  - coding assistant
+  - coding-assistant
   - llm
   - tui
 languages:

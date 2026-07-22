@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: vercel-ai-sdk
 name: Vercel AI SDK
 summary: A unified TypeScript SDK for building AI applications with a consistent API for interacting with various model providers.
 type: library

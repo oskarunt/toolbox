@@ -4,6 +4,8 @@ import { parseEntry, serializeEntry } from "../scripts/lib/entries.mjs";
 
 test("serializes conventional YAML frontmatter in canonical field order", () => {
   const entry = {
+    schema_version: 1,
+    id: "example",
     name: "Example",
     summary: "A useful example.",
     type: "tool",
@@ -24,7 +26,7 @@ test("serializes conventional YAML frontmatter in canonical field order", () => 
   };
 
   const output = serializeEntry(entry, "Personal note.");
-  assert.match(output, /^---\nname: Example\nsummary: A useful example\.\n/);
+  assert.match(output, /^---\nschema_version: 1\nid: example\nname: Example\n/);
   assert.doesNotMatch(output, /^---\n\{/);
   assert.deepEqual(parseEntry(output).data, entry);
   assert.equal(parseEntry(output).note, "Personal note.");

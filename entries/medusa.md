@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: medusa
 name: Medusa
 summary: An open-source, headless commerce platform and framework for building customizable e-commerce solutions.
 type: tool

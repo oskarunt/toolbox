@@ -1,12 +1,14 @@
 ---
+schema_version: 1
+id: deepeval
 name: DeepEval
-summary: DeepEval is an open-source LLM evaluation framework for testing and benchmarking large-language model systems.
+summary: An open-source LLM evaluation framework for testing and benchmarking large-language model systems.
 type: library
 status: watching
 topics:
-  - ai agents
+  - ai-agents
   - chatbots
-  - llm evaluation
+  - llm-evaluation
   - rag
   - testing
 languages:

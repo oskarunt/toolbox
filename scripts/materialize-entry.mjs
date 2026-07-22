@@ -3,7 +3,7 @@ import { writeFile } from "node:fs/promises";
 import { readJson, stableUnique } from "./lib/files.mjs";
 import { assertPublicUrl } from "./lib/issues.mjs";
 import { assertValid, normalizeEnrichment, validatorFor } from "./lib/validation.mjs";
-import { writeEntry } from "./lib/entries.mjs";
+import { slugify, writeEntry } from "./lib/entries.mjs";
 
 const [candidatePath = "candidate.json", reviewPath = "review.md"] = process.argv.slice(2);
 const artifact = await readJson(candidatePath);
@@ -17,6 +17,8 @@ const ownerName = input.submittedName?.replace(/\s+/g, " ").trim() || null;
 if (ownerName && ownerName.length > 100) throw new Error("The submitted name exceeds 100 characters.");
 
 const entry = {
+  schema_version: 1,
+  id: slugify(ownerName || enrichment.name),
   name: ownerName || enrichment.name,
   summary: enrichment.summary,
   type: input.kind || enrichment.type,

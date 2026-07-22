@@ -9,7 +9,8 @@ for (const entry of entries) {
     throw new Error(`${entry.filename} is not in canonical YAML format.`);
   }
 }
-const expected = renderReadme(entries);
+const template = await readFile("README.template.md", "utf8");
+const expected = renderReadme(entries, template);
 const actual = await readFile("README.md", "utf8");
 if (actual !== expected) {
   throw new Error("README.md is stale. Run `npm run generate` and commit the result.");

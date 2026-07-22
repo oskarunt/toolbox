@@ -33,6 +33,8 @@ export function parseEntry(contents, filename = "entry") {
 
 function canonicalEntry(entry) {
   return {
+    schema_version: entry.schema_version,
+    id: entry.id,
     name: entry.name,
     summary: entry.summary,
     type: entry.type,
@@ -67,6 +69,9 @@ export async function loadEntries(directory = "entries") {
       const contents = await readFile(path.join(directory, filename), "utf8");
       const parsed = parseEntry(contents, filename);
       assertValid(validate, parsed.data, filename);
+      if (parsed.data.id !== path.basename(filename, ".md")) {
+        throw new Error(`${filename} must use its filename stem as its stable id.`);
+      }
       return { ...parsed, filename, contents };
     })
   );
@@ -74,10 +79,13 @@ export async function loadEntries(directory = "entries") {
 
 export async function writeEntry(entry, note, directory = "entries") {
   await mkdir(directory, { recursive: true });
-  const base = slugify(entry.name);
-  let filename = `${base}.md`;
+  let id = entry.id || slugify(entry.name);
+  let filename = `${id}.md`;
   const existing = new Set(await readdir(directory));
-  if (existing.has(filename)) filename = `${base}-${entry.source_issue}.md`;
-  await writeFile(path.join(directory, filename), serializeEntry(entry, note), "utf8");
+  if (existing.has(filename)) {
+    id = `${id}-${entry.source_issue}`;
+    filename = `${id}.md`;
+  }
+  await writeFile(path.join(directory, filename), serializeEntry({ ...entry, id }, note), "utf8");
   return filename;
 }

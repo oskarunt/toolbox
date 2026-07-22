@@ -1,13 +1,15 @@
 ---
+schema_version: 1
+id: opencode
 name: OpenCode
 summary: An open source AI coding agent available as a terminal-based interface, desktop app, or IDE extension.
 type: tool
 status: recommended
 topics:
-  - ai coding agent
+  - ai-coding-agent
   - cli
-  - ide extension
-  - open source
+  - ide-extension
+  - open-source
 languages:
   - JavaScript
   - TypeScript

@@ -19,7 +19,7 @@
     "topics": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Two to six concise lowercase technical topics."
+      "description": "Two to six concise technical topics. Prefer lowercase kebab-case; the publisher canonicalizes the final values."
     },
     "languages": {
       "type": "array",

@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: tiptap
 name: TipTap
 summary: A headless, open-source rich text editor framework for the web.
 type: library

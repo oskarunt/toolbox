@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: polar
 name: Polar
 summary: A billing platform and Merchant of Record for developers building AI-era software, providing payments, subscriptions, and usage-based billing with global tax handling.
 type: service

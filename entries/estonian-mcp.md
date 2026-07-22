@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: estonian-mcp
 name: estonian-mcp
 summary: An offline Model Context Protocol (MCP) server that provides AI agents with tools for Estonian language processing, including spelling, morphology, and legal terminology, by wrapping EstNLTK, EKI Reeglid, and Riigi Teataja.
 type: tool

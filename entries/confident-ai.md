@@ -1,4 +1,6 @@
 ---
+schema_version: 1
+id: confident-ai
 name: Confident AI
 summary: An AI quality platform for enterprise teams to standardize AI evaluations and observability.
 type: service

@@ -77,14 +77,22 @@ function nullableUrl(value, label) {
   return value === null ? null : assertPublicUrl(value, label);
 }
 
+export function normalizeTopic(value) {
+  const topic = boundedText(value.toLowerCase(), "topic", 40)
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  if (!topic) throw new Error("topic must contain a letter or number.");
+  return topic;
+}
+
 export function normalizeEnrichment(candidate) {
   return {
     ...candidate,
     name: boundedText(candidate.name, "name", 100),
     summary: boundedText(candidate.summary, "summary", 280),
-    topics: stableUnique(
-      candidate.topics.map((topic) => boundedText(topic.toLowerCase(), "topic", 40))
-    ).slice(0, 8),
+    topics: stableUnique(candidate.topics.map(normalizeTopic)).slice(0, 8),
     languages: stableUnique(
       candidate.languages.map((language) => boundedText(language, "language", 40))
     ).slice(0, 8),
