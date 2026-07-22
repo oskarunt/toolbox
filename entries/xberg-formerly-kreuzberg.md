@@ -10,13 +10,13 @@ topics:
   - rag
   - text-extraction
 languages:
-  - C
-  - C#
-  - Dart
-  - Elixir
+  - Rust
+  - Python
+  - TypeScript
   - Go
   - Java
-  - Kotlin
+  - C#
+  - Ruby
   - PHP
 license: MIT
 added: 2026-07-22
