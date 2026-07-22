@@ -12,6 +12,7 @@ A personal library of technology, tools, and ideas worth remembering.
 ## Tools
 
 - [estonian-mcp](https://github.com/silly-geese/estonian-mcp) — An offline Model Context Protocol (MCP) server that provides AI agents with tools for Estonian language processing, including spelling, morphology, and legal terminology, by wrapping EstNLTK, EKI Reeglid, and Riigi Teataja. _watching_ · [package](https://smithery.ai/servers/silly-geese/estonian-mcp)
+- [Hey API](https://heyapi.dev/) — An ecosystem for turning OpenAPI specifications into production-ready code, including SDKs, validators, and query hooks. _watching_ · [docs](https://heyapi.dev/docs) · [source](https://github.com/hey-api/hey-api) · [package](https://npmjs.com/package/@hey-api/openapi-ts)
 
 ## Services
 
